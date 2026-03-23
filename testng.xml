@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+
+<!--
+  All URL and browser values are defined here so test classes never
+  hard-code them.  Suite-level parameters cascade to every <test> block
+  unless a block overrides them with its own <parameter> tag.
+-->
+<suite name="eBay Selenium Assignment Suite" verbose="2">
+
+    <!-- Suite-level parameters: available to ALL test blocks below -->
+    <parameter name="browser" value="chrome"/>
+    <parameter name="baseURL" value="https://www.ebay.com"/>
+
+    <!-- ══════════════════════════════════════════════════════════════ -->
+    <!-- QUESTION 02 TEST BLOCKS                                        -->
+    <!-- ══════════════════════════════════════════════════════════════ -->
+
+    <test name="Q2 - TestNG Basics">
+        <classes>
+            <class name="question02.TestNGBasicsTest"/>
+        </classes>
+    </test>
+
+    <test name="Q2 - Test Execution Control">
+        <classes>
+            <class name="question02.TestExecutionControlTest"/>
+        </classes>
+    </test>
+
+    <test name="Q2 - Assertions">
+        <classes>
+            <class name="question02.AssertionsTest"/>
+        </classes>
+    </test>
+
+    <test name="Q2 - Data Provider">
+        <classes>
+            <class name="question02.DataProviderTest"/>
+        </classes>
+    </test>
+
+    <!--
+      Two <test> blocks with DIFFERENT username/password values.
+      browser and baseURL are inherited from the suite level above.
+      ParameterizedTest.@BeforeClass reads all four parameters.
+    -->
+    <test name="Q2 - Parameterized (Set A)">
+        <parameter name="username" value="usera@example.com"/>
+        <parameter name="password" value="PasswordA1"/>
+        <classes>
+            <class name="question02.ParameterizedTest"/>
+        </classes>
+    </test>
+
+    <test name="Q2 - Parameterized (Set B)">
+        <parameter name="username" value="userb@example.com"/>
+        <parameter name="password" value="PasswordB2"/>
+        <classes>
+            <class name="question02.ParameterizedTest"/>
+        </classes>
+    </test>
+
+    <test name="Q2 - Dependency Tests">
+        <classes>
+            <class name="question02.DependencyTest"/>
+        </classes>
+    </test>
+
+</suite>
